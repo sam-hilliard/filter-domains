@@ -10,12 +10,16 @@ The purpose of `filter_domains.sh` is to streamline the process of filtering sub
 
 ### Running filter_domains.sh
 
-To use `filter_domains.sh`, provide two files as arguments:
-1. A file containing a list of in-scope domains.
-2. A file containing a list of subdomains to be filtered.
+To use `filter_domains.sh`, provide a file containing a list of in-scope domains and optionally a file containing a list of subdomains to be filtered. You can also pass the subdomains through standard input.
 
 ```bash
 ./filter_domains.sh in_scope.txt subdomains.txt
+```
+
+Alternatively, you can use it with input redirection:
+
+```bash
+cat subs.txt | ./filter_domains.sh in_scope.txt
 ```
 
 ### Example Usage
@@ -45,6 +49,7 @@ sub4.example.com
 
 - The script will output subdomains that match any of the in-scope domains or their subdomains.
 - Ensure that the input files are formatted correctly, with one domain per line.
+- You can provide the subdomains list either as a file or through standard input.
 
 ## License
 
